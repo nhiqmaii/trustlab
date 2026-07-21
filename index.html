@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrustLab — Studying how people trust AI</title>
+  <meta name="description" content="An interactive online study exploring how people calibrate trust in AI assistants. Run the experiment in 5 minutes and see your personal decision profile compared to the aggregate." />
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">TL</span>
+      <span class="brand__name">TrustLab <em>· a cognitive study</em></span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="experiment.html">Run study</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="methodology.html">Methods</a>
+      <a href="ethics.html">Ethics</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <p class="eyebrow">Online cognitive study &middot; ~5 min</p>
+      <h1 class="hero__title">
+        When do people <span class="hero__accent">trust the AI</span>,<br />
+        and when do they push back?
+      </h1>
+      <p class="lede hero__lede">
+        TrustLab is a small, interactive study on human&ndash;AI decision making.
+        You will complete a short cognitive task where an AI assistant offers answers
+        with varying confidence &mdash; and then see how your pattern compares to
+        the aggregate. All responses stay on your device unless you choose to share.
+      </p>
+      <div class="hstack hero__cta">
+        <a class="btn btn--primary btn--big" href="experiment.html">Run the study</a>
+        <a class="btn btn--ghost btn--big" href="methodology.html">Read the methods</a>
+      </div>
+      <p class="hero__note mono">no accounts &middot; no cookies &middot; ~10 trials &middot; runs entirely in your browser</p>
+    </section>
+
+    <section class="pillars">
+      <article class="pillar">
+        <p class="pillar__num">01</p>
+        <h3>You run a task</h3>
+        <p>Answer 10 short trivia items. Each time, an AI assistant offers an answer with a stated confidence level. You decide whether to accept it or override with your own answer.</p>
+      </article>
+      <article class="pillar">
+        <p class="pillar__num">02</p>
+        <h3>We measure calibration</h3>
+        <p>Behind the scenes, we log your decision, response time, and accuracy. The design lets us estimate how much AI confidence sways your judgement &mdash; independent of whether the AI is actually right.</p>
+      </article>
+      <article class="pillar">
+        <p class="pillar__num">03</p>
+        <h3>You get a personal report</h3>
+        <p>Right after the study you see your own decision profile: acceptance rate, sensitivity to AI confidence, accuracy vs. a baseline. Then compare to the aggregate on the dashboard.</p>
+      </article>
+    </section>
+
+    <section class="card constructs">
+      <h2>What this study is really about</h2>
+      <p class="lede">
+        TrustLab is a small vehicle for a big question in cognitive science and human&ndash;AI interaction:
+        <strong>how well do people calibrate their trust in AI advice?</strong>
+      </p>
+      <div class="grid-2 constructs__grid">
+        <div>
+          <h3>Algorithm appreciation vs. aversion</h3>
+          <p class="muted">Do people over-rely on the AI even when it is confidently wrong? Or under-use it even when it is confidently right?</p>
+        </div>
+        <div>
+          <h3>Confidence as a cue</h3>
+          <p class="muted">Does a higher stated confidence from the AI shift acceptance, holding correctness constant?</p>
+        </div>
+        <div>
+          <h3>Response time as a signal</h3>
+          <p class="muted">Faster decisions may indicate reliance on the AI; slower ones may indicate deliberation.</p>
+        </div>
+        <div>
+          <h3>Calibration gap</h3>
+          <p class="muted">Are participants better off deferring to the AI, overriding it, or applying a discerning mix?</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-strip">
+      <div>
+        <h2>Ready to be a participant?</h2>
+        <p class="muted">Five minutes. Ten questions. Your data stays on your device.</p>
+      </div>
+      <a class="btn btn--primary btn--big" href="experiment.html">Start the study</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>TrustLab &middot; built by Nhi &middot; a cognitive science project on human&ndash;AI trust</p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

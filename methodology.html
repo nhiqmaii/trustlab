@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methodology — TrustLab</title>
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+  <link rel="stylesheet" href="css/base.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">TL</span>
+      <span class="brand__name">TrustLab <em>· a cognitive study</em></span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="experiment.html">Run study</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="methodology.html">Methods</a>
+      <a href="ethics.html">Ethics</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <p class="eyebrow">Methodology</p>
+      <h2>How the study is designed</h2>
+      <p class="lede">
+        TrustLab is a small self-contained web experiment on human&ndash;AI decision making.
+        This page documents the design decisions so results can be interpreted honestly
+        and the code can be adapted for future studies.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>1. Research question</h2>
+      <p>
+        <strong>How well do people calibrate their trust in an AI assistant's answers,
+        and how does the AI's stated confidence shift that calibration?</strong>
+      </p>
+      <p>
+        The task lets us observe two behaviors on every trial: whether the participant
+        defers to the AI or overrides it, and how quickly that decision is made. Because
+        we manipulate whether the AI is correct and how confident it claims to be, we
+        can dissociate three related but distinct constructs:
+      </p>
+      <ul class="cs-list" style="margin-left:1.3rem;">
+        <li><strong>Reliance</strong> &mdash; how often the participant accepts the AI overall.</li>
+        <li><strong>Confidence sensitivity</strong> &mdash; how much stated AI confidence shifts acceptance, holding accuracy constant.</li>
+        <li><strong>Calibration</strong> &mdash; whether the participant's decisions align with the AI's actual accuracy pattern.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>2. Task design</h2>
+      <h3>Trial structure</h3>
+      <p>Each trial follows the same script:</p>
+      <ol style="margin-left:1.3rem;">
+        <li>A trivia prompt appears with a clear factual answer.</li>
+        <li>The AI assistant presents an answer with a stated confidence level.</li>
+        <li>The participant chooses to accept the AI's answer or override with their own.</li>
+        <li>If overriding, they type an answer.</li>
+        <li>The correct answer is revealed.</li>
+      </ol>
+      <h3>Stimulus manipulation (within-subject 2 &times; 2)</h3>
+      <p>
+        AI answers vary along two crossed dimensions: correctness ({correct, incorrect})
+        and stated confidence ({high &ge; 85%, low &le; 65%}). The current item pool is 10
+        trials with the following distribution:
+      </p>
+      <ul style="margin-left:1.3rem;">
+        <li>4 &times; high-confidence &amp; correct</li>
+        <li>3 &times; high-confidence &amp; incorrect (leverages common misconceptions)</li>
+        <li>2 &times; low-confidence &amp; correct</li>
+        <li>1 &times; low-confidence &amp; incorrect</li>
+      </ul>
+      <p class="muted">
+        The item pool is intentionally small for a first iteration. Adding more items
+        (and randomizing order) would let us fit per-participant models rather than
+        report descriptives only.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>3. Why the AI is scripted</h2>
+      <p>
+        This is the single most important design decision in the study, and the one
+        that most differentiates it from typical "chat with an AI" web toys.
+      </p>
+      <p>
+        Every participant sees <strong>the exact same AI response</strong> for each
+        trial. This trades away authenticity for a much larger gain: the stimulus
+        becomes a controlled variable rather than a source of noise. If we called a
+        live language model, differences in participant behavior might reflect
+        differences in the AI's response rather than differences in the participant.
+      </p>
+      <p>
+        Scripting also has three practical benefits:
+      </p>
+      <ul style="margin-left:1.3rem;">
+        <li>The study is fully deterministic and reproducible.</li>
+        <li>No API costs, keys, or rate limits.</li>
+        <li>No participant data is sent to any third-party AI provider.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>4. Dependent measures</h2>
+      <ul style="margin-left:1.3rem;">
+        <li><strong>Decision</strong> &mdash; accept vs. override, per trial.</li>
+        <li><strong>Response time</strong> &mdash; ms from stimulus onset to decision, captured with performance.now() at millisecond precision.</li>
+        <li><strong>Answer accuracy</strong> &mdash; whether the participant's final answer matches the ground truth (loose string match: case-insensitive, punctuation-stripped, substring-tolerant).</li>
+        <li><strong>Confidence sensitivity</strong> (derived) &mdash; acceptance rate on high-confidence trials minus acceptance rate on low-confidence trials.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>5. Analysis</h2>
+      <p>
+        At this pilot stage the analytics module reports descriptive statistics only:
+        acceptance rates, sensitivity gaps, mean and median response times, and
+        counterfactual accuracy (what would have happened under always-accept vs.
+        override-only strategies).
+      </p>
+      <p>
+        Because trial counts are small (n = 10 per participant), inferential tests
+        would be under-powered. A future version with 30 or more items per session,
+        collected across a real participant pool, would support mixed-effects logistic
+        regression modeling of acceptance as a function of AI confidence and correctness.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>6. Known limitations</h2>
+      <ul style="margin-left:1.3rem;">
+        <li><strong>Convenience sample.</strong> The aggregate dashboard uses simulated pilot data, not a real participant sample. Every number should be read as illustrative until a real dataset is collected.</li>
+        <li><strong>Small item pool.</strong> Ten items is not enough to distinguish participant traits from item effects.</li>
+        <li><strong>Trivia domain.</strong> Findings on general-knowledge questions may not generalize to domains where AI is more or less trusted (e.g., medical, financial, creative).</li>
+        <li><strong>Self-selected participants.</strong> Anyone who visits this site opts in; no random sampling.</li>
+        <li><strong>Single-session design.</strong> We cannot say anything about how trust evolves with repeated exposure.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>7. What is planned next</h2>
+      <ul style="margin-left:1.3rem;">
+        <li>Expand the item pool to 30&ndash;40 trials and randomize order across participants.</li>
+        <li>Add a domain manipulation (e.g., trivia vs. medical vignettes) to test transferability.</li>
+        <li>Add optional demographic / prior-AI-experience questions after the task.</li>
+        <li>Add a real backend (Supabase or a small serverless function) so aggregate charts reflect actual participants.</li>
+        <li>Publish a formal write-up of results once a real sample has been collected.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>TrustLab &middot; methodology last updated with the initial launch</p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>

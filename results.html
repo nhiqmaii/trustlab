@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your results — TrustLab</title>
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/data.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">TL</span>
+      <span class="brand__name">TrustLab <em>· a cognitive study</em></span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="experiment.html">Run study</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="methodology.html">Methods</a>
+      <a href="ethics.html">Ethics</a>
+    </nav>
+  </header>
+
+  <!-- Inline SVG defs used by chart primitives -->
+  <svg class="chart-defs" aria-hidden="true">
+    <defs>
+      <linearGradient id="chart-grad-amber" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#f4b942"/>
+        <stop offset="1" stop-color="#ffcc70"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <main>
+    <div id="results-root"></div>
+  </main>
+
+  <footer class="footer">
+    <p>TrustLab &middot; nothing here left your device</p>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/stimuli.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/aggregate.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/results.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>

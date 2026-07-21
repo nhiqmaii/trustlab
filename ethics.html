@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethics &amp; privacy — TrustLab</title>
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+  <link rel="stylesheet" href="css/base.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand__mark">TL</span>
+      <span class="brand__name">TrustLab <em>· a cognitive study</em></span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="experiment.html">Run study</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="methodology.html">Methods</a>
+      <a href="ethics.html">Ethics</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="card">
+      <p class="eyebrow">Ethics &amp; privacy</p>
+      <h2>How this study treats your data</h2>
+      <p class="lede">
+        TrustLab is designed so that participating leaves no trace off your device.
+        This page describes exactly what happens to your responses.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>1. What is collected</h2>
+      <p>
+        When you run the study, the following is written to your browser's local
+        storage on <em>this device only</em>:
+      </p>
+      <ul style="margin-left:1.3rem;">
+        <li>A per-session identifier (a random string, not linked to you).</li>
+        <li>Start and completion timestamps.</li>
+        <li>For each trial: which stimulus was shown, your decision, the answer you typed (if any), whether it was correct, and how long the decision took in milliseconds.</li>
+      </ul>
+      <p>
+        No name, email, IP address, device fingerprint, or account information is
+        collected. No cookies are set. No third-party analytics or trackers are loaded.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>2. Where the data lives</h2>
+      <p>
+        On <strong>this device</strong>, in your browser's local storage. It never
+        touches a server, because there is no server. TrustLab is a static site
+        (HTML, CSS, JavaScript) hosted on a free static host; no backend receives
+        or processes your responses.
+      </p>
+      <p>
+        The aggregate dashboard you see under <a class="link" href="dashboard.html">Dashboard</a>
+        is generated from simulated pilot data (a seeded pseudorandom process), not
+        collected from other real participants. This is clearly labeled on that page.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>3. Your controls</h2>
+      <p>Immediately after finishing the study you can:</p>
+      <ul style="margin-left:1.3rem;">
+        <li><strong>Export your data as JSON</strong> for your own records.</li>
+        <li><strong>Delete every trace of your session</strong> from this device in one click.</li>
+        <li><strong>Re-run the study</strong> as many times as you want (each session is stored separately).</li>
+      </ul>
+      <p>Clearing your browser's site data (or using private / incognito mode) also removes everything, since local storage is scoped to the browser.</p>
+    </section>
+
+    <section class="card">
+      <h2>4. AI ethics</h2>
+      <p>
+        The "AI assistant" in this study is a scripted set of pre-written responses,
+        not a live language model. This design decision is documented in the
+        <a class="link" href="methodology.html">methodology</a> and has an ethics
+        implication worth naming directly:
+      </p>
+      <ul style="margin-left:1.3rem;">
+        <li><strong>Your prompts and responses are never sent to any AI provider.</strong> No text you type is transmitted anywhere.</li>
+        <li><strong>The AI cannot make up a wrong answer that harms you</strong> because every response is deterministic and reviewed in the source code.</li>
+        <li><strong>The study cannot become a data-farming pipeline</strong> because it has no way to send data off your device.</li>
+      </ul>
+      <p>
+        These properties matter more than they might seem. Many "chat with AI" web
+        toys quietly forward everything the user types to a third-party API and log
+        it. TrustLab was built explicitly to demonstrate that you can build meaningful
+        AI-adjacent research tools without that trade-off.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>5. Not medical or professional advice</h2>
+      <p>
+        This is a small cognitive research demo. It is not medical, psychological,
+        or professional advice, and no result you see here should be treated as
+        diagnostic or clinical.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>6. Consent, plainly stated</h2>
+      <p>
+        By clicking through the intro on the experiment page, you are agreeing to
+        contribute data that stays only on your device unless you personally export
+        it. There is no need to withdraw consent through us because the data is
+        already under your control &mdash; you can wipe it at any time from the
+        results page.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>7. Contact</h2>
+      <p>
+        TrustLab is a personal research project by Nhi. If you want to ask about the
+        study design, request the source code (it is public), or report a bug, please
+        open an issue on the GitHub repository.
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>TrustLab &middot; nothing here leaves your device</p>
+  </footer>
+
+  <script src="js/nav.js"></script>
+</body>
+</html>
